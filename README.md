@@ -1,7 +1,5 @@
 # Docker Images
 
-## Dedicated Game Servers
-
 ### Image Inheritence
 
 - [`mcr.microsoft.com/dotnet/core/sdk`](#)
