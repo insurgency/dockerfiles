@@ -19,7 +19,7 @@ jobs:
           --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steamcmd:$(date +%s)"
           --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steamcmd:$GITHUB_SHA"
           --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steamcmd:${GITHUB_SHA:0:7}"
-          ./
+          ./steamcmd/
       - name: Publish Docker image to GitHub Package Registry
         # language=BASH
         run: docker push "docker.pkg.github.com/$GITHUB_REPOSITORY/steamcmd"
