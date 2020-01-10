@@ -1,5 +1,8 @@
-name: CI
-on: push
+name: SteamCMD Docker Image
+on:
+  push:
+    paths:
+      - steamcmd/*
 
 jobs:
   steamcmd:
