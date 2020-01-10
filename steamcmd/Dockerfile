@@ -10,7 +10,7 @@ RUN echo steam steam/question select 'I AGREE' | debconf-set-selections \
 # Install steamcmd from APT
 # See: https://developer.valvesoftware.com/wiki/SteamCMD#Package_from_repositories
 RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install steamcmd \
-		# "Waiting for user info...opensslconnection.cpp (1490) : Assertion Failed: unable to load trusted SSL root certificates"
+		# Needed to allow SteamCMD to make HTTPS connections
 		ca-certificates \
 		# ia32-libs are not required to install SteamCMD; lib32gcc1 is enough.
 		lib32gcc1
