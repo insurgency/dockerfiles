@@ -1,4 +1,4 @@
-name: SteamCMD Docker Image
+name: Insurgency Docker Image
 on:
   push:
     paths:
