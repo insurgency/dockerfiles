@@ -19,7 +19,7 @@ jobs:
           --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader:$(date +%s)"
           --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader:$GITHUB_SHA"
           --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader:${GITHUB_SHA:0:7}"
-          ./source-engine/
+          ./steam-depot-downloader/
       - name: Publish Docker image to GitHub Package Registry
         # language=BASH
         run: docker push "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader"
