@@ -1,6 +1,10 @@
 version: "3.7"
 
 services:
+  steamcmd:
+    image: docker.pkg.docker.com/insurgency/dockerfiles/steamcmd:development
+    build:
+      context: ./steamcmd/
   insurgency:
     image: docker.pkg.docker.com/insurgency/dockerfiles/insurgency:development
     build:
