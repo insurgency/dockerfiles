@@ -14,7 +14,7 @@ RUN steamcmd \
 		+app_update ${GAME_APPID} validate \
 		+quit
 # Remove stupid joystick configs that are useless on a headless server and spit out console errors on startup
-RUN bash -c "rm -f /$GAME_NAME/$GAME_NAME/cfg/{joy_configuration_sc,joystick,controller,joy_configuration_sc_analog,joy_configuration_sc_absolute}.cfg"
+RUN bash -c "rm -f /${GAME_SLUG}/${GAME_SLUG}/cfg/{joy_configuration_sc,joystick,controller,joy_configuration_sc_analog,joy_configuration_sc_absolute}.cfg"
 # Remove usless .exe and .dll files (won't be needing those on a Linux server!)
 RUN find /${GAME_SLUG}/ -type f \( -iname \*.exe -o -iname \*.dll -iname \*.dylib \) -delete
 # Remove all map files to reduce size by quite a bit (they can be loaded from a volume instead)
