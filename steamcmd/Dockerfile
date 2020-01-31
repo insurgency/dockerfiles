@@ -5,7 +5,7 @@ RUN dpkg --add-architecture i386 && apt-get update
 
 # Accept Steam's installation terms of agreement
 RUN echo "steam steam/question select I AGREE" | debconf-set-selections \
-	&& echo "steam steam/license note" | debconf-set-selections
+		&& echo "steam steam/license note" | debconf-set-selections
 
 # Install steamcmd from APT
 # See: https://developer.valvesoftware.com/wiki/SteamCMD#Package_from_repositories
