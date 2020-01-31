@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2
 
-RUN apt-get update
-RUN apt-get install -y git
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+		&& apt-get install -y git
 RUN git clone --depth 1 https://github.com/SteamRE/DepotDownloader.git /depot-downloader/
 WORKDIR /depot-downloader/
 RUN dotnet build DepotDownloader.sln
