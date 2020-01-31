@@ -1,0 +1,25 @@
+name: Steam Depot Downloader Docker Image
+on: push
+
+jobs:
+  steamcmd:
+    name: Build Docker Image (Steam Depot Downloader)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to the GitHub Docker Registry
+        # language=BASH
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login --username ${GITHUB_REPOSITORY%/*} --password-stdin docker.pkg.github.com
+      - uses: actions/checkout@v1
+      - name: Build Docker image
+        # language=BASH
+        run: >-
+          docker build
+          --pull
+          --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader:$(GITHUB_REF=${GITHUB_REF#refs/heads/}; echo -n ${GITHUB_REF////-})"
+          --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader:$(date +%s)"
+          --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader:$GITHUB_SHA"
+          --tag "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader:${GITHUB_SHA:0:7}"
+          ./source-engine/
+      - name: Publish Docker image to GitHub Package Registry
+        # language=BASH
+        run: docker push "docker.pkg.github.com/$GITHUB_REPOSITORY/steam-depot-downloader"
