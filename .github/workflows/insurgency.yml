@@ -1,8 +1,5 @@
 name: Insurgency Docker Image
-on:
-  push:
-    paths:
-      - source-engine/*
+on: push
 
 jobs:
   steamcmd:

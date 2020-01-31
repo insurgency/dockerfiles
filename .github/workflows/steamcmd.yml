@@ -1,8 +1,5 @@
 name: SteamCMD Docker Image
-on:
-  push:
-    paths:
-      - steamcmd/*
+on: push
 
 jobs:
   steamcmd:
