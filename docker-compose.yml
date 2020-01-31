@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  insurgency:
+    image: docker.pkg.docker.com/insurgency/dockerfiles/insurgency:development
+    build:
+      context: ./source-engine/
+      args:
+        - GAME_SLUG=insurgency
+        - GAME_APPID=237410
